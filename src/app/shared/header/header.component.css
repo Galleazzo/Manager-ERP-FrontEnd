@@ -1,0 +1,12 @@
+.header {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .user-info {
+        font-size: 14px;
+    }
+}
