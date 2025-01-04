@@ -4,6 +4,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './core/auth.guard';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { UsersComponent } from './pages/users/users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,7 +15,7 @@ const routes: Routes = [
     canActivate: [AuthGuard], // Protege todas as rotas dentro deste layout
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      // Outras rotas internas podem ser adicionadas aqui
+      { path: 'users', component: UsersComponent}
     ],
   },
 ];
