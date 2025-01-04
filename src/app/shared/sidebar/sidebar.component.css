@@ -23,3 +23,18 @@
         }
     }
 }
+
+.item {
+    padding: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.item:hover {
+    background-color: #1d2835;
+}
+
+.active {
+    background-color: #1d2835; 
+    font-weight: bold;
+}
