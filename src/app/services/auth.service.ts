@@ -15,19 +15,32 @@ export class AuthService {
   login(credentials: { username: string; password: string }): Observable<any> {
     return this.http.post(`${this.apiUrl}`, credentials).pipe(
       tap((response: any) => {
+        console.log(response);
+        
         localStorage.setItem('token', response.token);
+        localStorage.setItem("expirationDate", response.expirationDate)
       })
     );
   }
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem("expirationDate")
     this.router.navigate(['/login']);
   }
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    const expirationDate = localStorage.getItem('expirationDate');
+  
+    if (!token || !expirationDate) {
+      return false;
+    }
+  
+    const expiration = new Date(expirationDate);
+    return new Date() < expiration;
   }
+  
 
   getToken(): string | null {
     return localStorage.getItem('token');
