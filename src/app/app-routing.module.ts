@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent, // Layout padrão para páginas internas
-    canActivate: [AuthGuard], // Protege todas as rotas dentro deste layout
+    canActivate: [AuthGuard], // Protege todas as rotas dentro deste layout ^^^^
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UsersComponent}
