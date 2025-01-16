@@ -1,21 +1,27 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit{
 
-  constructor(private usersService: UserService){}
+  users: any[] = [];
 
-  get() {
+  constructor(private usersService: UserService) {}
+
+  ngOnInit(): void {
+   this.getUsers()
+  }
+
+  getUsers(): void {
     this.usersService.getAllUsers().subscribe((response: any) => {
-      console.log(response);
-      
-    })
+      this.users = response;
+    });
   }
 
 }
