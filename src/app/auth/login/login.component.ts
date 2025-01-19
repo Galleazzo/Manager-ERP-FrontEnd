@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,7 +21,7 @@ import { AuthService } from 'src/app/services/auth.service';
     MatIconModule,
   ],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   loginForm: FormGroup;
   hidePassword = true;
   errorMessage = '';
@@ -31,6 +31,10 @@ export class LoginComponent {
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+  }
+  ngOnInit(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem("expirationDate");
   }
 
   onSubmit() {
