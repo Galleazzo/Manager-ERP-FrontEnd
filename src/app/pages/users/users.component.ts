@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/users.service';
 
 @Component({
@@ -8,14 +9,13 @@ import { UserService } from 'src/app/services/users.service';
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
-export class UsersComponent implements OnInit{
-
+export class UsersComponent implements OnInit {
   users: any[] = [];
 
-  constructor(private usersService: UserService) {}
+  constructor(private usersService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-   this.getUsers()
+    this.getUsers();
   }
 
   getUsers(): void {
@@ -24,4 +24,7 @@ export class UsersComponent implements OnInit{
     });
   }
 
+  goToUserForm(): void {
+    this.router.navigate(['/users/new']);
+  }
 }

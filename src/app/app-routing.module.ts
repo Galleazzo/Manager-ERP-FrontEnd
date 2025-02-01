@@ -5,17 +5,19 @@ import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './core/auth.guard';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { UsersComponent } from './pages/users/users.component';
+import { UserFormComponent } from './pages/users/user-form/user-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
     path: '',
-    component: LayoutComponent, // Layout padrão para páginas internas
-    canActivate: [AuthGuard], // Protege todas as rotas dentro deste layout ^^^^
+    component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'users', component: UsersComponent}
+      { path: 'users', component: UsersComponent },
+      { path: 'users/new', component: UserFormComponent } // Adiciona a nova rota
     ],
   },
 ];

@@ -1,15 +1,16 @@
-<p>users works!</p>
+<button class="btn btn-primary mb-3" (click)="goToUserForm()">Criar Novo Usuário</button>
+
 <table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users; let i = index">
-            <th scope="row">{{ user.id }}</th>
-            <td>{{ user.username }}</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <th scope="row">{{ user.id }}</th>
+      <td>{{ user.username }}</td>
+    </tr>
+  </tbody>
 </table>
