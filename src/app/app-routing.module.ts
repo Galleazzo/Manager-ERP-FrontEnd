@@ -6,10 +6,12 @@ import { AuthGuard } from './core/auth.guard';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
+import { FirstAccessComponent } from './auth/first-access/first-access.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'firstAccess', component: FirstAccessComponent },
   {
     path: '',
     component: LayoutComponent,

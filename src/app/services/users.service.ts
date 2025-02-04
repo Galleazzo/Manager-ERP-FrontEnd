@@ -14,10 +14,12 @@ export class UserService {
 
   getAllUsers(): Observable<any[]> {
     return this.http.get(`${this.apiUrl}` + "/users").pipe(
-      tap((response: any) => {
-        console.log(response);
-      })
+      tap((response: any) => {})
     )
+  }
+
+  findUserByUsername(body: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/users/findByUsername`, body);
   }
 
   createUser(userData: any): Observable<any> {

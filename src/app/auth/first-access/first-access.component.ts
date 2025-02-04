@@ -7,29 +7,32 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/users.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-first-access',
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-  ],
+      CommonModule,
+      ReactiveFormsModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatButtonModule,
+      MatIconModule,
+    ],
+  templateUrl: './first-access.component.html',
+  styleUrl: './first-access.component.css'
 })
-export class LoginComponent implements OnInit{
+export class FirstAccessComponent implements OnInit{
+
   loginForm: FormGroup;
   hidePassword = true;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
+  userData: any;
+
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private userService: UserService) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required]],
     });
   }
   ngOnInit(): void {
@@ -39,16 +42,13 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const credentials = this.loginForm.value;
-      this.authService.login(credentials).subscribe({
-        next: () => {
-          this.router.navigate(['/dashboard']);
-        },
-        error: (err) => {
-          this.errorMessage = 'Invalid username or password.';
-          console.error(this.errorMessage);
-        },
-      });
+      const body = {
+        "username": this.loginForm.value,
+        "password": null
+      }
+      this.userService.findUserByUsername(body).subscribe((result: any) => {
+        this.userData = result;
+      })
     }
   }
 
@@ -58,5 +58,9 @@ export class LoginComponent implements OnInit{
 
   firstAccess() {
     this.router.navigate(["/firstAccess"])
+  }
+
+  backToLogin() {
+    this.router.navigate(["/login"])
   }
 }
