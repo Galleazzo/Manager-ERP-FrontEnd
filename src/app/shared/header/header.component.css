@@ -5,8 +5,33 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    z-index: 1000;
+}
 
-    .user-info {
-        font-size: 14px;
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .header {
+        left: 0;
+        width: 100%;
+    }
+}
+
+/* Botão hamburguer */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
     }
 }

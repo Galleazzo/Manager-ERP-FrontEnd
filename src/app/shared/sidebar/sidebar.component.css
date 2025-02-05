@@ -4,21 +4,34 @@
     color: #ecf0f1;
     height: 100vh;
     position: fixed;
+    transition: transform 0.3s ease-in-out;
+}
 
-    ul {
-        list-style: none;
-        padding: 0;
+/* Oculta a sidebar em telas menores e permite abrir via botão */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 200px;
+    }
 
-        li {
-            padding: 15px;
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
 
-            a {
-                color: #ecf0f1;
-                text-decoration: none;
+ul {
+    list-style: none;
+    padding: 0;
 
-                &:hover {
-                    color: #3498db;
-                }
+    li {
+        padding: 15px;
+
+        a {
+            color: #ecf0f1;
+            text-decoration: none;
+
+            &:hover {
+                color: #3498db;
             }
         }
     }
@@ -35,6 +48,6 @@
 }
 
 .active {
-    background-color: #1d2835; 
+    background-color: #1d2835;
     font-weight: bold;
 }

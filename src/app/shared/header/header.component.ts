@@ -8,8 +8,14 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  isSidebarOpen = false;
+  constructor(private authService: AuthService) { }
 
-  constructor(private authService: AuthService){}
+  
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 
   logout() {
     this.authService.logout();

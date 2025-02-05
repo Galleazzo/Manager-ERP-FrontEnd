@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Idade</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Alergia</th>
+      <th scope="col">Ação</th>    
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let form of forms; let i = index">
+      <th scope="row">{{ form.id }}</th>
+      <td>{{ form.personalInfo.firstName }} {{ form.personalInfo.lastName}}</td>
+      <td>{{ form.personalInfo.age }}</td>
+      <td>{{ form.personalInfo.phoneNumber }}</td>
+      <td>{{ form.personalInfo.address }}</td>
+      <td>{{ form.medicalHistory.allergyDescription }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="navigateToForm(form.id)">Ver Detalhes</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

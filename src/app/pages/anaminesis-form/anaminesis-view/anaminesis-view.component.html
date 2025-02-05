@@ -1,0 +1,56 @@
+<div class="container">
+    <h2 class="text-center">Ficha de Anamnese</h2>
+  
+    <!-- Informações Pessoais -->
+    <div class="card mt-3">
+      <div class="card-header">Informações Pessoais</div>
+      <div class="card-body">
+        <p><strong>Nome:</strong> {{ anamnese?.personalInfo.firstName }} {{ anamnese?.personalInfo.lastName }}</p>
+        <p><strong>Endereço:</strong> {{ anamnese?.personalInfo.address }}</p>
+        <p><strong>Telefone:</strong> {{ anamnese?.personalInfo.phoneNumber }}</p>
+        <p><strong>Idade:</strong> {{ anamnese?.personalInfo.age }}</p>
+        <p><strong>Gênero:</strong> {{ anamnese?.personalInfo.gender === 'FEMALE' ? 'Feminino' : 'Masculino' }}</p>
+      </div>
+    </div>
+  
+    <!-- Saúde -->
+    <div class="card mt-3">
+      <div class="card-header">Informações de Saúde</div>
+      <div class="card-body">
+        <p><strong>Exposição ao Sol:</strong> {{ anamnese?.healthInfo.exposedToSun ? 'Sim' : 'Não' }}</p>
+        <p><strong>Dieta de Alto Índice Glicêmico:</strong> {{ anamnese?.healthInfo.highGlycemicDiet ? 'Sim' : 'Não' }}</p>
+        <p><strong>Função Intestinal Regular:</strong> {{ anamnese?.healthInfo.regularIntestinalFunction ? 'Sim' : 'Não' }}</p>
+        <p><strong>Boa Qualidade do Sono:</strong> {{ anamnese?.healthInfo.goodSleepQuality ? 'Sim' : 'Não' }}</p>
+        <p><strong>Fumante:</strong> {{ anamnese?.healthInfo.smoking ? 'Sim' : 'Não' }}</p>
+        <p><strong>Portador de Marcapasso:</strong> {{ anamnese?.healthInfo.pacemaker ? 'Sim' : 'Não' }}</p>
+        <p><strong>Doença de Pele:</strong> {{ anamnese?.healthInfo.skinDisease ? 'Sim' : 'Não' }}</p>
+      </div>
+    </div>
+  
+    <!-- Histórico Médico -->
+    <div class="card mt-3">
+      <div class="card-header">Histórico Médico</div>
+      <div class="card-body">
+        <p><strong>Tratamento Facial Anterior:</strong> {{ anamnese?.medicalHistory.previousFacialTreatment ? 'Sim' : 'Não' }}</p>
+        <p><strong>Descrição do Tratamento:</strong> {{ anamnese?.medicalHistory.facialTreatmentDescription || 'Nenhum' }}</p>
+        <p><strong>Alergia na Pele:</strong> {{ anamnese?.medicalHistory.skinAllergy ? 'Sim' : 'Não' }}</p>
+        <p><strong>Descrição da Alergia:</strong> {{ anamnese?.medicalHistory.allergyDescription || 'Nenhum' }}</p>
+        <p><strong>Já Usou Roacutan:</strong> {{ anamnese?.medicalHistory.usedRoaccutane ? 'Sim' : 'Não' }}</p>
+      </div>
+    </div>
+  
+    <!-- Estilo de Vida -->
+    <div class="card mt-3 mb-4">
+      <div class="card-header">Estilo de Vida</div>
+      <div class="card-body">
+        <p><strong>Bebe Água Frequentemente:</strong> {{ anamnese?.lifestyleInfo.drinksWaterFrequently ? 'Sim' : 'Não' }}</p>
+        <p><strong>Consome Bebida Alcoólica:</strong> {{ anamnese?.lifestyleInfo.drinksAlcohol ? 'Sim' : 'Não' }}</p>
+        <p><strong>Usa Protetor Solar:</strong> {{ anamnese?.lifestyleInfo.usesSunscreenFrequently ? 'Sim' : 'Não' }}</p>
+        <p><strong>Usa Anticoncepcional:</strong> {{ anamnese?.lifestyleInfo.usesBirthControl ? 'Sim' : 'Não' }}</p>
+        <p><strong>Tem Rotina de Skincare:</strong> {{ anamnese?.lifestyleInfo.hasSkincareRoutine ? 'Sim' : 'Não' }}</p>
+        <p><strong>Gestante ou Lactante:</strong> {{ anamnese?.lifestyleInfo.pregnantOrLactating ? 'Sim' : 'Não' }}</p>
+        <p><strong>Está Menstruando:</strong> {{ anamnese?.lifestyleInfo.menstruating ? 'Sim' : 'Não' }}</p>
+      </div>
+    </div>
+  </div>
+  
