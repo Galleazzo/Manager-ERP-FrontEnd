@@ -1,12 +1,7 @@
 .layout {
     display: flex;
+    flex-direction: row;
     height: 100vh;
-}
-
-app-sidebar {
-    width: 250px;
-    background-color: #f4f4f4;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .content {
@@ -15,11 +10,12 @@ app-sidebar {
     background-color: #fafafa;
     overflow-y: auto;
     margin-left: 250px;
+    transition: all 0.3s ease;
 }
 
-/* Ajuste para telas menores */
 @media (max-width: 768px) {
     .content {
         margin-left: 0;
+        padding: 60px 15px 15px;
     }
 }
