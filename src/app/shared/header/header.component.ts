@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { SidebarService } from 'src/app/services/sidebar.service';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent {
   isSidebarOpen = false;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private sidebarService: SidebarService) { }
 
-  
 
   toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
+    this.sidebarService.toggleSidebar();
   }
 
   logout() {

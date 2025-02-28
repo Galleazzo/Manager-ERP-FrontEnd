@@ -5,10 +5,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     top: 0;
     left: 250px;
-    width: calc(100% - 250px);
     z-index: 1000;
 }
 
