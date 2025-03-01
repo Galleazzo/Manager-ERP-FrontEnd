@@ -11,10 +11,31 @@
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
-        width: 200px;
+        width: 100%;
     }
 
     .sidebar.open {
         transform: translateX(0);
     }
+}
+
+.textLink {
+    color: white;
+    text-decoration: none;
+    padding-left: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.item{
+    line-height: 50px;
+    margin-left: -33px;
+  
+}
+
+.item:hover{
+    line-height: 50px;
+    background-color: #1c2834;
 }
