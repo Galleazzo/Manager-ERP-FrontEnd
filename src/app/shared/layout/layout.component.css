@@ -6,16 +6,20 @@
 
 .content {
     flex: 1;
-    padding: 80px 20px 20px;
+    padding: 30px 20px 20px;
     background-color: #fafafa;
     overflow-y: auto;
-    margin-left: 250px;
     transition: all 0.3s ease;
+    margin-left: 250px; /* Espaço padrão para desktop */
 }
 
 @media (max-width: 768px) {
     .content {
-        margin-left: 0;
-        padding: 60px 15px 15px;
+        margin-left: 0; /* Ajustado para telas menores */
+        padding: 20px 15px 15px;
+    }
+
+    .sidebar.open + .content {
+        filter: blur(2px); /* Opcional: adiciona um efeito para realçar o menu aberto */
     }
 }
