@@ -17,4 +17,9 @@ export class SidebarComponent {
       this.isSidebarOpen = status;
     });
   }
+
+  toggleSidebar() {
+    this.sidebarService.toggleSidebar();
+  }
+
 }

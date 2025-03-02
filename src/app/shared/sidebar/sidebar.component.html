@@ -1,7 +1,7 @@
 <nav class="sidebar" [class.open]="isSidebarOpen">
     <ul>
-        <li class="item" routerLinkActive="active"><a routerLink="/dashboard" class="textLink">Dashboard</a></li>
-        <li class="item" routerLinkActive="active"><a routerLink="/users" class="textLink">Users</a></li>
-        <li class="item" routerLinkActive="active"><a routerLink="/anamnesis" class="textLink">Anamnesis</a></li>
+        <li class="item" routerLinkActive="active"><a routerLink="/dashboard" class="textLink" (click)="toggleSidebar()">Dashboard</a></li>
+        <li class="item" routerLinkActive="active"><a routerLink="/users" class="textLink" (click)="toggleSidebar()">Users</a></li>
+        <li class="item" routerLinkActive="active"><a routerLink="/anamnesis" class="textLink" (click)="toggleSidebar()">Anamnesis</a></li>
     </ul>
 </nav>
